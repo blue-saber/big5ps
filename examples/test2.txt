@@ -1,0 +1,7 @@
+~fn /usr/lib/ttf/simsun.ttf
+~fn /usr/lib/ttf/bkai00mp.ttf
+~usefn 1
+¤@
+~usefn 2
+¤@
+~emit 10 10 moveto

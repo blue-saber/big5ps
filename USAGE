@@ -1,0 +1,67 @@
+~fs 13
+~fn /usr/lib/ttf/bkai00mp.ttf
+~fn /usr/lib/ttf/avmfv.ttf
+~usefn 1
+
+=======================================================================
+	關於 big5ps
+=======================================================================
+
+命令列的使用
+
+	big5ps [-n][-w][-b outbin][-t tray][-o outfile] file
+
+		-n		Don't scale fonts
+		-w		wrap on
+		-b outbin	輸出的紙夾
+		-t tray		輸入的紙夾
+		-o outfile	輸出檔
+
+文件上的控制碼
+
+	控制碼以 ~ 開頭, 一定要在每行的最開始才算
+
+	~rem			註解
+	~paper {A4|A3...}	紙張的規格
+	~px xxx			紙寬 (除非自定規格紙, 建議用 paper 就好)
+	~py xxx			紙長 (除非自定規格紙, 建議用 paper 就好)
+	~fs xxx			字型大小
+	~fn xxx			字型檔
+	~mphdr xxx		Multi-page header (做浮水印)
+	~landscape {1|0}	橫式或直式 (Default: 0)
+	~tray {1,2,3,4}		輸入的紙夾
+	~outbin {1,2}		上方或左方出紙
+	~wrap {0|1}		回繞
+	~inlinecmd {0|1}	行間的控制, default 是不允許
+	~lineheadcmd {0|1}	行頭的控制, default 是允許
+	~chgcmd xxx		更改控制命令
+	~usefn {1,2,3,...}	使用第 n 個字型檔的字型
+	~setrgb 0xRRGGBB	設定顏色
+	~rgb-save		儲存現在的顏色
+	~rgb-restore		還原為上次儲存的顏色
+	~emit [PostScript cmd]	插入 PostScript 指令
+
+說明例
+	~fn /usr/lib/ttf/bkai00mp.ttf; 載入字型檔 (1)
+	~fn /usr/lib/ttf/avmfv.ttf;    載入字型檔 (2)
+
+	~usefn 1;	使用字型檔 1
+~usefn 1
+	字型檔 1 的字型
+
+	~usefn 2;	使用字型檔 2
+~usefn 2
+	字型檔 2 的字型
+~usefn 1
+
+	如果在同行中要變化字型要先把 lineheadcmd 設成 1, 如:
+	~inlinecmd 1
+	~usefn 1
+	字型一~usefn 2;字型二~usefn 1;字型一
+	
+	結果如:
+~inlinecmd 1
+	字型一~usefn 2;字型二~usefn 1;字型一~inlinecmd 0;
+
+~emit 100 100 moveto 200 200 lineto stroke
+	插入 PostScript 的指令

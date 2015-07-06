@@ -1,0 +1,31 @@
+~chgcmd ~!@
+~!@rem mphdr /path/to/epsfile.eps
+~!@paper A4;	Paper Size is A4
+~!@landscape 0;	0 -> Portrait, 1 -> LandScape
+~!@rem tray 4;	Tray 4
+~!@wrap 1
+~!@fs 50
+~!@fn /usr/lib/ttf/moe_sung.ttf;	字型一
+~!@fn /usr/lib/ttf/moe_kai.ttf
+~!@fn /usr/lib/ttf/avmfv.ttf
+~!@fn /usr/lib/ttf/ttro.ttf
+~!@fn /usr/lib/ttf/dftt-h6.ttf
+~!@fn /usr/lib/ttf/avpop.ttf
+~!@fn /usr/lib/ttf/kaiu.ttf;
+~!@fn /usr/lib/ttf/mingliu.ttc;
+~!@fn /usr/lib/ttf/simsun.ttf;
+~!@fn /usr/lib/ttf/dfft-s5.ttf
+~!@fn /usr/lib/ttf/bkai00mp.ttf
+~!@fn /usr/lib/ttf/bsmi00lp.ttf
+~!@lineheadcmd 1
+~!@usefn 1
+big5ps
+
+~!@usefn 4
+關於本程式
+~!@inlinecmd 1
+字形:~!@usefn 10;單碼中文外框字bkai00mp~!@usefn 11;另一個單碼中文外框字bsmi00lp
+~!@inlinecmd 0
+~!@usefn 6
+本程式事實上是由
+~!@formfeed
